@@ -46,13 +46,15 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="这道题其实不难. 只要知道sudoku的方法就好了. 检查一排间有没有重复数字, 检查一列有没有重复数字. 检查9个大格子中有没有重复数字. 这个大格子用一个hashmap储存&lt;每个大格子的index, Integer&gt;. index的计算则用index &#x3D; (row&#x2F;3) * 3 + col&#x2F;3  row除以3, 则能把9个row平均分成3份 0, 1, 2. 但是我们需要的是0,">
+<meta property="og:type" content="article">
 <meta property="og:title" content="37. Valid Sudoku解析">
 <meta property="og:url" content="http://yoursite.com/2020/01/12/Valid-Sudoku%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="Study Recording">
+<meta property="og:description" content="这道题其实不难. 只要知道sudoku的方法就好了. 检查一排间有没有重复数字, 检查一列有没有重复数字. 检查9个大格子中有没有重复数字. 这个大格子用一个hashmap储存&lt;每个大格子的index, Integer&gt;. index的计算则用index &#x3D; (row&#x2F;3) * 3 + col&#x2F;3  row除以3, 则能把9个row平均分成3份 0, 1, 2. 但是我们需要的是0,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-12T12:59:55.000Z">
-<meta property="article:modified_time" content="2020-01-12T13:01:27.901Z">
+<meta property="article:modified_time" content="2020-01-13T09:08:18.798Z">
 <meta property="article:author" content="Kailnese">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -198,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-13 00:01:27" itemprop="dateModified" datetime="2020-01-13T00:01:27+11:00">2020-01-13</time>
+                <time title="Modified: 2020-01-13 20:08:18" itemprop="dateModified" datetime="2020-01-13T20:08:18+11:00">2020-01-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,7 +232,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>这道题其实不难. 只要知道sudoku的方法就好了. 检查一排间有没有重复数字, 检查一列有没有重复数字. 检查9个大格子中有没有重复数字.</p>
+<p>这个大格子用一个hashmap储存&lt;每个大格子的index, Integer&gt;.</p>
+<p>index的计算则用index = (row/3) * 3 + col/3</p>
+<blockquote>
+<p>row除以3, 则能把9个row平均分成3份 0, 1, 2. 但是我们需要的是0, 3, 6, 则乘以3. 后面col除以3, 则可以把列分成3份. 加起来就是index了</p>
+</blockquote>
+<p>剩下的就是2个for loop的问题了. 因为sudoku的格子大小固定, n是常数, 所以时间复杂度O(1)</p>
+
     </div>
 
     
@@ -327,7 +336,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

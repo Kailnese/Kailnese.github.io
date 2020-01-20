@@ -46,15 +46,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Study Recording">
-<meta property="og:url" content="http://yoursite.com/categories/MarkDown-Intro/index.html">
+  <meta name="description" content="题目: Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. 给定一个数组, 求连续subarray中返回最大sum的值  个人解法(时间复杂度超过O(n), 不可取)我个人想的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="53. Maximum Subarray">
+<meta property="og:url" content="http://yoursite.com/2020/01/20/53-Maximum-Subarray/index.html">
 <meta property="og:site_name" content="Study Recording">
+<meta property="og:description" content="题目: Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. 给定一个数组, 求连续subarray中返回最大sum的值  个人解法(时间复杂度超过O(n), 不可取)我个人想的">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-20T03:04:36.000Z">
+<meta property="article:modified_time" content="2020-01-20T03:44:41.575Z">
 <meta property="article:author" content="Kailnese">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/categories/MarkDown-Intro/">
+<link rel="canonical" href="http://yoursite.com/2020/01/20/53-Maximum-Subarray/">
 
 
 <script id="page-configurations">
@@ -62,11 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Category: MarkDown Intro | Study Recording</title>
+  <title>53. Maximum Subarray | Study Recording</title>
   
 
 
@@ -160,50 +164,92 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">MarkDown Intro
-          <small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/53-Maximum-Subarray/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kailnese">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Study Recording">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          53. Maximum Subarray
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-20 14:04:36 / Modified: 14:44:41" itemprop="dateCreated datePublished" datetime="2020-01-20T14:04:36+11:00">2020-01-20</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <blockquote>
+<p>题目: Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. 给定一个数组, 求连续subarray中返回最大sum的值</p>
+</blockquote>
+<h2 id="个人解法-时间复杂度超过O-n-不可取"><a href="#个人解法-时间复杂度超过O-n-不可取" class="headerlink" title="个人解法(时间复杂度超过O(n), 不可取)"></a>个人解法(时间复杂度<code>超过</code>O(n), 不可取)</h2><p>我个人想的是创建一个从1开始递增的window, 直到window大小跟list大小一样. 然后用循环, 把window一步一步往右边移动, 求出每个window的sum. 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static int MaxSubArray(int[] nums) &#123;</span><br><span class="line">        int window &#x3D; 1;</span><br><span class="line">        int max &#x3D; Integer.MIN_VALUE;</span><br><span class="line">        if(nums.length &#x3D;&#x3D; 1)return nums[0];</span><br><span class="line">        while(window&lt;&#x3D;nums.length) &#123;</span><br><span class="line">        	for(int b &#x3D; 0; b+window&lt;&#x3D;nums.length; b++) &#123;</span><br><span class="line">        		int sum &#x3D; 0;</span><br><span class="line">	        	for(int a &#x3D; 0; a&lt;window; a++) &#123;</span><br><span class="line">	        		sum+&#x3D;nums[a+b];</span><br><span class="line">	        	&#125;</span><br><span class="line">	        	if(max&lt;sum)max&#x3D;sum;</span><br><span class="line">        	&#125;</span><br><span class="line">        	window++;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="在submission中看到一个很强的算法-时间复杂度O-n"><a href="#在submission中看到一个很强的算法-时间复杂度O-n" class="headerlink" title="在submission中看到一个很强的算法, 时间复杂度O(n)"></a>在submission中看到一个很强的算法, 时间复杂度O(n)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public int maxSubArray(int[] nums) &#123;</span><br><span class="line">        int maxTillNow, maxSubarray;</span><br><span class="line">        maxTillNow &#x3D; 0;</span><br><span class="line">        maxSubarray &#x3D; Integer.MIN_VALUE;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            maxTillNow +&#x3D; nums[i];</span><br><span class="line">            if (maxSubarray &lt; maxTillNow)</span><br><span class="line">                maxSubarray &#x3D; maxTillNow;</span><br><span class="line">            if (maxTillNow &lt; 0)</span><br><span class="line">                maxTillNow &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxSubarray;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>创建了两个int值, maxTillNow和maxSubarray. 第一个用来记录local max, 第二个则记录global max.</p>
+<p>实时更新local max, 如果加起来值开始小于0了, 则重置local max</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-12T22:54:27+11:00"
-              content="2020-01-12">
-          01-12
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/12/MarkDown-note/" itemprop="url">
-            <span itemprop="name">MarkDown note</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/16/Java%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="Java面试题">
+      <i class="fa fa-chevron-left"></i> Java面试题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -254,6 +300,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人解法-时间复杂度超过O-n-不可取"><span class="nav-number">1.</span> <span class="nav-text">个人解法(时间复杂度超过O(n), 不可取)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在submission中看到一个很强的算法-时间复杂度O-n"><span class="nav-number">2.</span> <span class="nav-text">在submission中看到一个很强的算法, 时间复杂度O(n)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
